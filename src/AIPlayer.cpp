@@ -21,7 +21,8 @@ bool AIPlayer::move(){
     return true;
 }
 
-void AIPlayer::think(color & c_piece, int & id_piece, int & dice) const{
+
+void  AIPlayer::thinkAleatorio(color & c_piece, int & id_piece, int & dice) const{
     // IMPLEMENTACIÓN INICIAL DEL AGENTE
     // Esta implementación realiza un movimiento aleatorio.
     // Se proporciona como ejemplo, pero se debe cambiar por una que realice un movimiento inteligente
@@ -89,6 +90,26 @@ void AIPlayer::think(color & c_piece, int & id_piece, int & dice) const{
     cout << "Valor MiniMax: " << valor << "  Accion: " << str(c_piece) << " " << id_piece << " " << dice << endl;
 
     */
+
+    
+}
+void AIPlayer::think(color & c_piece, int & id_piece, int & dice) const{
+
+    switch(id){
+        case 0:
+        thinkAleatorio(c_piece, id_piece, dice);
+        break;
+        case 1:
+       // thinkAleatorioMasInteligente(c_piece, id_piece, dice);
+        break;
+        case 2:
+        //thinkFichaMasAdelantada(c_piece, id_piece, dice);
+        break;
+        case 3:
+        //thinkMejorOpcion(c_piece, id_piece, dice);
+        break;
+    }
+    
 }
 
 
@@ -97,7 +118,7 @@ double AIPlayer::ValoracionTest(const Parchis &estado, int jugador)
 {
     // Heurística de prueba proporcionada para validar el funcionamiento del algoritmo de búsqueda.
 
-
+    
     int ganador = estado.getWinner();
     int oponente = (jugador+1) % 2;
 
